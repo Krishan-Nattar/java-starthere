@@ -158,7 +158,7 @@
 
     <build>
 <!--        <finalName>${project.artifactId}</finalName>-->
-        <finalName>jrmmba-starthere</finalName>
+        <finalName>krishan-nattar-school</finalName>
 
         <plugins>
             <plugin>
@@ -173,7 +173,7 @@
                 <artifactId>heroku-maven-plugin</artifactId>
                 <version>2.0.10</version>
                 <configuration>
-                    <appName>${project.build.finalName}</appName>
+                    <appName>krishan-nattar-school</appName>
                     <includeTarget>false</includeTarget>
                     <includes>
                         <!--   For windows      <include>${project.build.directory}\${project.build.finalName}.jar</include>-->
