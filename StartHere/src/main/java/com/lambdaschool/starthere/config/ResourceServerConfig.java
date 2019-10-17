@@ -39,6 +39,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter
             .antMatchers("/users/**",
                          "/useremails/**",
                          "/oauth/revoke-token",
+                         "/courses/**",
+                         "/students/**",
                          "/logout")
             .authenticated()
             // restrict application data...

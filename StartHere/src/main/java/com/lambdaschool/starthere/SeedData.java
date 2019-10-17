@@ -3,12 +3,8 @@ package com.lambdaschool.starthere;
 import com.github.javafaker.Faker;
 import com.github.javafaker.service.FakeValuesService;
 import com.github.javafaker.service.RandomService;
-import com.lambdaschool.starthere.models.Role;
-import com.lambdaschool.starthere.models.User;
-import com.lambdaschool.starthere.models.UserRoles;
-import com.lambdaschool.starthere.models.Useremail;
-import com.lambdaschool.starthere.services.RoleService;
-import com.lambdaschool.starthere.services.UserService;
+import com.lambdaschool.starthere.models.*;
+import com.lambdaschool.starthere.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -27,10 +23,78 @@ public class SeedData implements CommandLineRunner
     @Autowired
     UserService userService;
 
+    @Autowired
+    InstructorService instructorService;
+
+    @Autowired
+    CourseService courseService;
+
+    @Autowired
+    StudentService studentService;
+
 
     @Override
     public void run(String[] args) throws Exception
     {
+        Instructor i1 = new Instructor("Sally");
+        Instructor i2 = new Instructor("Lucy");
+        Instructor i3 = new Instructor("Charlie");
+
+        instructorService.save(i1);
+
+        instructorService.save(i2);
+
+        instructorService.save(i3);
+
+        Course c1 = new Course("Data Science", i1);
+        courseService.save(c1);
+        Course c2 = new Course("Javascript", i1);
+        courseService.save(c2);
+        Course c3 = new Course("Node.js", i1);
+        courseService.save(c3);
+        Course c4 = new Course("Java Back End", i2);
+        courseService.save(c4);
+        Course c5 = new Course("Mobile IOS", i2);
+        courseService.save(c5);
+        Course c6 = new Course("Mobile Android", i3);
+        courseService.save(c6);
+
+        Student s1 = new Student("John");
+        Student s2 = new Student("Julian");
+        Student s3 = new Student("Mary");
+        Student s4 = new Student("James");
+        Student s5 = new Student("Tyler");
+        Student s6 = new Student("Kim");
+        Student s7 = new Student("Juan");
+        Student s8 = new Student("Robby");
+        Student s9 = new Student("Roberto");
+        Student s10 = new Student("Bob");
+        Student s11 = new Student("Liz");
+        Student s12 = new Student("June");
+        Student s13 = new Student("April");
+
+        studentService.save(s1);
+        studentService.save(s2);
+        studentService.save(s3);
+        studentService.save(s4);
+        studentService.save(s5);
+        studentService.save(s6);
+        studentService.save(s7);
+        studentService.save(s8);
+        studentService.save(s9);
+        studentService.save(s10);
+        studentService.save(s11);
+        studentService.save(s12);
+        studentService.save(s13);
+
+//        studentService.insertStudentIntoCourse(10, 4);
+//        studentService.insertStudentIntoCourse(10, 7);
+//        studentService.insertStudentIntoCourse(11, 5);
+//        studentService.insertStudentIntoCourse(12, 6);
+//        studentService.insertStudentIntoCourse(12, 4);
+//        studentService.insertStudentIntoCourse(12, 9);
+
+
         Role r1 = new Role("admin");
         Role r2 = new Role("user");
         Role r3 = new Role("data");
@@ -111,6 +175,8 @@ public class SeedData implements CommandLineRunner
                            "misskitty@school.lambda",
                            users);
         userService.save(u5);
+
+
 
         // using JavaFaker create a bunch of regular users
         // https://www.baeldung.com/java-faker
