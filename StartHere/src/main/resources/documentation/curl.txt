@@ -1,0 +1,34 @@
+//Admin token: bfce927a-cfd0-4382-9ba7-9016a52b0392
+
+//Add a new student named "John Smith"
+curl -X POST  -H "Content-Type: application/json" -H "Authorization: Bearer bfce927a-cfd0-4382-9ba7-9016a52b0392" -d "{ \"studname\": \"John Smith\"}" https://krishan-nattar-school.herokuapp.com/students/Student
+
+//Update a student's name to Billy bob. Student id is 1
+curl -X PUT  -H "Content-Type: application/json" -H "Authorization: Bearer bfce927a-cfd0-4382-9ba7-9016a52b0392" -d "{ \"studname\": \"Billy Bob\"}"  https://krishan-nattar-school.herokuapp.com/students/Student/1
+
+//Delete a student with id of 1
+curl -X DELETE -H "Content-Type: application/json" -H  "Authorization: Bearer bfce927a-cfd0-4382-9ba7-9016a52b0392" https://krishan-nattar-school.herokuapp.com/students/Student/1
+
+//Retrieve student details of student id 2
+curl -X GET "https://krishan-nattar-school.herokuapp.com/students/Student/2" -H "accept: application/json" -H  "Authorization: Bearer bfce927a-cfd0-4382-9ba7-9016a52b0392"
+
+//Enroll a student into a course. Student of id 2 gets enrolled in course of id 1.
+curl -X GET "https://krishan-nattar-school.herokuapp.com/students/Student/2/course/1" -H "accept: */*" -H  "Authorization: Bearer bfce927a-cfd0-4382-9ba7-9016a52b0392"
+
+//unenroll a student from a course. student of id 2 leaves course of id 1.
+curl -X DELETE "https://krishan-nattar-school.herokuapp.com/students/Student/2/course/1" -H "accept: */*" -H  "Authorization: Bearer bfce927a-cfd0-4382-9ba7-9016a52b0392"
+
+//Retrieve a student with a matching name
+curl -X GET "https://krishan-nattar-school.herokuapp.com/students/student/namelike/Mary" -H "accept: application/json" -H  "Authorization: Bearer bfce927a-cfd0-4382-9ba7-9016a52b0392"
+
+//return all students with paging and sorting
+curl -X GET "https://krishan-nattar-school.herokuapp.com/students/students?page=0&size=100" -H "accept: application/json" -H  "Authorization: Bearer bfce927a-cfd0-4382-9ba7-9016a52b0392"
+
+//add a new course
+curl -X POST "https://krishan-nattar-school.herokuapp.com/courses/course/add" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"coursename\": \"Logic 101\", \"instructor\": { \"instructid\": 1}}" -H  "Authorization: Bearer bfce927a-cfd0-4382-9ba7-9016a52b0392"
+
+//return all courses using paging and sorting
+curl -X GET "https://krishan-nattar-school.herokuapp.com/courses/courses?page=0&size=100" -H "accept: application/json" -H  "Authorization: Bearer bfce927a-cfd0-4382-9ba7-9016a52b0392"
+
+//return a count of students in courses
+curl -X GET "https://krishan-nattar-school.herokuapp.com/courses/studcount" -H "accept: application/json" -H  "Authorization: Bearer bfce927a-cfd0-4382-9ba7-9016a52b0392"
