@@ -87,12 +87,12 @@ public class SeedData implements CommandLineRunner
         studentService.save(s12);
         studentService.save(s13);
 
-        studentService.insertStudentIntoCourse(10, 4);
-        studentService.insertStudentIntoCourse(10, 7);
-        studentService.insertStudentIntoCourse(11, 5);
-        studentService.insertStudentIntoCourse(12, 6);
-        studentService.insertStudentIntoCourse(12, 4);
-        studentService.insertStudentIntoCourse(12, 9);
+//        studentService.insertStudentIntoCourse(10, 4);
+//        studentService.insertStudentIntoCourse(10, 7);
+//        studentService.insertStudentIntoCourse(11, 5);
+//        studentService.insertStudentIntoCourse(12, 6);
+//        studentService.insertStudentIntoCourse(12, 4);
+//        studentService.insertStudentIntoCourse(12, 9);
 
 
         Role r1 = new Role("admin");
