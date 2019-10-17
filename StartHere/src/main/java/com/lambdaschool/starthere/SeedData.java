@@ -3,12 +3,8 @@ package com.lambdaschool.starthere;
 import com.github.javafaker.Faker;
 import com.github.javafaker.service.FakeValuesService;
 import com.github.javafaker.service.RandomService;
-import com.lambdaschool.starthere.models.Role;
-import com.lambdaschool.starthere.models.User;
-import com.lambdaschool.starthere.models.UserRoles;
-import com.lambdaschool.starthere.models.Useremail;
-import com.lambdaschool.starthere.services.RoleService;
-import com.lambdaschool.starthere.services.UserService;
+import com.lambdaschool.starthere.models.*;
+import com.lambdaschool.starthere.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -27,10 +23,28 @@ public class SeedData implements CommandLineRunner
     @Autowired
     UserService userService;
 
+    @Autowired
+    InstructorService instructorService;
+
+    @Autowired
+    CourseService courseService;
+
+    @Autowired
+    StudentService studentService;
+
 
     @Override
     public void run(String[] args) throws Exception
     {
+        Instructor i1 = new Instructor("Sally");
+        Instructor i2 = new Instructor("Lucy");
+        Instructor i3 = new Instructor("Charlie");
+        i1.setInstructid(77);
+        instructorService.save(i1);
+
+        instructorService.save(i2);
+        instructorService.save(i3);
+
         Role r1 = new Role("admin");
         Role r2 = new Role("user");
         Role r3 = new Role("data");
@@ -111,6 +125,8 @@ public class SeedData implements CommandLineRunner
                            "misskitty@school.lambda",
                            users);
         userService.save(u5);
+
+
 
         // using JavaFaker create a bunch of regular users
         // https://www.baeldung.com/java-faker
